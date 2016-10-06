@@ -1,6 +1,11 @@
 #!/bin/bash
-export USERNAME="fshare.group%40gmail.com"
-export PASSWORD="101202303"
+while getopts u:p: opts; do
+   case ${opts} in
+      u) USERNAME=${OPTARG} ;;
+      p) PASSWORD=${OPTARG} ;;
+   esac
+done
+
 export EXT_PARAMS="url_refe=http%3A%2F%2Fwww.fshare.vn%2F&auto_login=1"
 export LOGIN_DATA="login_useremail=$USERNAME&login_password=$PASSWORD&$EXT_PARAMS"
 export LOGIN_URL="https://www.fshare.vn/login.php"
